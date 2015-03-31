@@ -1,5 +1,5 @@
 {
-  "server_url": "http://hcc:8181/",
+  "server_url": "http://hcc:8182",
   "view": "TESTING",
   "job_replace_string": "-toolkit-lsp-csra-integration-tests-nightly",
   "title": "LSP-CSRA INTEGRATION TESTING",
