@@ -105,19 +105,25 @@ JSONObject getJobInfo(String job_name) {
 }
 
 void TTS(String percent, String additional) {
-  if (!additional.equals("")) {
-    player = minim.loadFile("audio/say_"+additional+".mp3");
-    player.play();
-  }
-  boolean say = true;
-  while (player.isPlaying ()) {
-    if (say) {
-      println("--> Talking <--");
+  try {
+    if (!additional.equals("")) {
+      player = minim.loadFile("audio/say_"+additional+".mp3");
+      player.play();
     }
-    say=false;
+    boolean say = true;
+    while (player.isPlaying ()) {
+      if (say) {
+        println("--> Talking <--");
+      }
+      say=false;
+    }
+    player = minim.loadFile("audio/say_"+percent+".mp3");
+    player.play();
+  } 
+  catch (Exception e) {
+    println("While talking\n");
+    println(e);
   }
-  player = minim.loadFile("audio/say_"+percent+".mp3");
-  player.play();
 }
 
 int getMaxBuildNumber() {
@@ -315,14 +321,14 @@ void draw() {
       }
     } 
     catch (Exception e) {
+      println("While MainLoop()\n");
       println(e);
     }
   } // err_state
-
     if (error_state) {
-    fill(255, 102, 104);
-    textSize(width/10);
-    text("ERROR!\nConsult log file...", 40, height/3);
+      fill(255, 102, 104);
+      textSize(width/10);
+      text("ERROR!\nConsult log file...", 40, height/3);
   }
 } // draw
 
