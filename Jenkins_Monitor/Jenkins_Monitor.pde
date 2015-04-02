@@ -116,9 +116,11 @@ void TTS(String percent, String additional) {
         }
         say=false;
       }
+    player.close();
     }       
     player = minim.loadFile("audio/say_"+percent+".mp3");
     player.play();
+    player.close();
   } 
   catch (Exception e) {
     println("While talking\n");
