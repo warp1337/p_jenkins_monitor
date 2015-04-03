@@ -51,3 +51,9 @@ Configuration Semantics
 }
 ```
 
+SSL Hint
+=========
+
+In case you are running your Jenkins via SSL, you might need to add your certificate to the Java keystore
+
+http://stackoverflow.com/questions/4325263/how-to-import-a-cer-certificate-into-a-java-keystore
