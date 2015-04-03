@@ -194,6 +194,10 @@ int getMaxBuildNumber() {
 }
 
 float computeRectLength(float builds) {
+  if (builds < 1.0f) {
+    println("--> No builds have been run yet <--");
+    return 0.0f;
+  }
   int max = width-x_translate-y_padding;
   float factor = (builds/max_builds)*max;
   return factor;
