@@ -5,7 +5,7 @@ Processing Jenkins Monitor
 
 Recently, I looked for a way to visualize the statuses of `important` CI build jobs. Since the Jenkins CI Server already provides 
 a neat way of aggregating jobs using so-called views, plus providing a convenient REST-like JSON API, I decided to implement this 
-tiny visualization application myself using the `Processing <https://processing.org/>`_ framework. The goals of this application 
+tiny visualization application myself using the Processing framework. The goals of this application 
 are simple: i) visualize jobs by displaying the total number of builds and the current build status, and ii) also provide auditory feedback.
 
 That said, this application is `not` meant to display and watch lots of jobs, that's what your Jenkins front-end does. It is more about organizing 
