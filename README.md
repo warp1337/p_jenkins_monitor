@@ -19,7 +19,7 @@ Installation
 1. mkdir ~/sketchbook
 2. git clone this into ~/sketchbook
 3. Edit the config.json according to your needs
-4. Download the latest release of https://processing.org/, fire it up, and open the Jenkins_Monitor.pde
+4. Get the latest release of https://processing.org/, fire it up, and open the Jenkins_Monitor.pde
 5. Run it! (press "Play")
 
 
@@ -28,8 +28,8 @@ Stand-Alone Deployment
 
 You may also deploy this application as a stand-alone application (no need for Processing). Therefore, you must open it (once) in Processing 
 and press CTRL+E (or File --> Export Application). Follow the instructions carefully and you will end up with a new folder containing all the 
-necessary files in order to run this application without opening Processing. However, you `MUST` copy the audio and config.json into that 
-folder before starting/shipping the application.
+necessary files in order to run this application without opening Processing. However, you `MUST` copy the audio folder and config.json file into 
+that folder before starting/shipping the application.
 
 
 Configuration Semantics
