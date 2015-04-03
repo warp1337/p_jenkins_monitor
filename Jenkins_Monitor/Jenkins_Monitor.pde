@@ -3,7 +3,6 @@ import ddf.minim.*;
 
 // Global helper vars
 Minim minim;
-AudioPlayer player;
 JSONObject jenkins_json;
 JSONObject job_info;
 JSONArray jenkins_data;
@@ -105,22 +104,27 @@ JSONObject getJobInfo(String job_name) {
 }
 
 void TTS(String percent, String additional) {
+  AudioPlayer player_1;
+  AudioPlayer player_2;
   boolean say = true;
   try {
     if (!additional.equals("")) {
-      player = minim.loadFile("audio/say_"+additional+".mp3");
-      player.play();
-      while (player.isPlaying()) {
+      player_1 = minim.loadFile("audio/say_"+additional+".mp3");
+      player_1.play();
+      while (player_1.isPlaying()) {
         if (say) {
           println("--> Talking <--");
         }
         say=false;
+        // Save some CPU time while waiting
+        Thread.sleep(0.01);
       }
-    player.close();
-    }       
-    player = minim.loadFile("audio/say_"+percent+".mp3");
-    player.play();
-    player.close();
+    }
+    player_1.close();
+
+    player_2 = minim.loadFile("audio/say_"+percent+".mp3");
+    player_2.play();
+    player_2.close();
   } 
   catch (Exception e) {
     println("While talking\n");
@@ -334,3 +338,10 @@ void draw() {
   }
 } // draw
 
+
+void stop()
+{
+  // Always close Minim audio classes when you are done with them
+  minim.stop();
+  super.stop();
+}
