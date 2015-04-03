@@ -18,11 +18,11 @@ a public display (at your office for instance) in order to provide a quick overv
 Installation
 =============
 
-a) mkdir ~/sketchbook
-b) git clone this into ~/sketchbook
-c) Edit the config.json according to your needs
-d) Download the latest release of `Processing <https://processing.org/>`_, fire it up, and open the Jenkins_Monitor.pde
-e) Run it! (press "Play")
+1. mkdir ~/sketchbook
+2. git clone this into ~/sketchbook
+3. Edit the config.json according to your needs
+4. Download the latest release of ![Processing](https://processing.org/), fire it up, and open the Jenkins_Monitor.pde
+5. Run it! (press "Play")
 
 
 Stand-Alone Deployment
