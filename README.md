@@ -1,5 +1,3 @@
-# Processing Jenkins Monitor
-
 Processing Jenkins Monitor
 ===========================
 
@@ -21,7 +19,7 @@ Installation
 1. mkdir ~/sketchbook
 2. git clone this into ~/sketchbook
 3. Edit the config.json according to your needs
-4. Download the latest release of ![Processing](https://processing.org/), fire it up, and open the Jenkins_Monitor.pde
+4. Download the latest release of https://processing.org/, fire it up, and open the Jenkins_Monitor.pde
 5. Run it! (press "Play")
 
 
