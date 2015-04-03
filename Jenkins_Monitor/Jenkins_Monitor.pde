@@ -104,27 +104,34 @@ JSONObject getJobInfo(String job_name) {
 }
 
 void TTS(String percent, String additional) {
-  AudioPlayer player_1;
-  AudioPlayer player_2;
   boolean say = true;
+  AudioPlayer player = null;
   try {
     if (!additional.equals("")) {
-      player_1 = minim.loadFile("audio/say_"+additional+".mp3");
-      player_1.play();
-      while (player_1.isPlaying()) {
+      player = minim.loadFile("audio/say_"+additional+".mp3");
+      player.play();
+      while (player.isPlaying()) {
         if (say) {
-          println("--> Talking <--");
+          println("--> Saying Additional Message <--");
         }
         say=false;
         // Save some CPU time while waiting
-        Thread.sleep(0.01);
+        Thread.sleep(100);
       }
     }
-    player_1.close();
-
-    player_2 = minim.loadFile("audio/say_"+percent+".mp3");
-    player_2.play();
-    player_2.close();
+    
+    player = minim.loadFile("audio/say_"+percent+".mp3");
+    player.play();
+    say = true;
+    while (player.isPlaying()) {
+        if (say) {
+          println("--> Saying Percent <--");
+        }
+        say=false;
+        // Save some CPU time while waiting
+        Thread.sleep(100);
+    }
+    player.close();
   } 
   catch (Exception e) {
     println("While talking\n");
