@@ -2,10 +2,10 @@
   "server_url": "http://localhost:8181/",
   "view": "INTEGRATION",
   "job_replace_string": "-toolkit-lsp-csra-integration-tests-nightly",
-  "title": "LSP-CSRA INTEGRATION TESTING",
+  "title": "MY INTEGRATION TESTING",
   "title_size": 30,
   "spacing": 5,
   "refreshrate": 30,
-  "sayrate": 30
+  "sayrate": 1800
 }
 

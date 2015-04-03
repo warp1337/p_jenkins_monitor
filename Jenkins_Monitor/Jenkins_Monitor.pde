@@ -1,31 +1,36 @@
 import http.requests.*;
 import ddf.minim.*;
 
-// Global helper vars
 Minim minim;
+
 JSONObject jenkins_json;
 JSONObject job_info;
 JSONArray jenkins_data;
+
 String server_url;
 String job_replace_string;
 String title;
 String view;
+
 long start;
-long say_start;
-int[] build_counts;
-int refreshrate;
+
+int spacer;
 int sayrate;
 int max_builds;
+long say_start;
+int refreshrate;
+int x_translate;
+int y_offset = 50;
+int y_padding = 50;
+int[] build_counts;
 int success_builds;
 int fixed_text_size;
-int y_offset = 50;
 int text_pos_x = 20;
-int x_translate;
-int spacer;
-int y_padding = 50;
+
 boolean error_state = false;
 
 void setup() {
+
   // GFX Setup
   frameRate(1);
   size(displayWidth, displayHeight);
@@ -112,24 +117,24 @@ void TTS(String percent, String additional) {
       player.play();
       while (player.isPlaying()) {
         if (say) {
-          println("--> Saying Additional Message <--");
+          println("--> Saying: additional Message <--");
         }
         say=false;
         // Save some CPU time while waiting
         Thread.sleep(100);
       }
     }
-    
+
     player = minim.loadFile("audio/say_"+percent+".mp3");
     player.play();
     say = true;
     while (player.isPlaying()) {
-        if (say) {
-          println("--> Saying Percent <--");
-        }
-        say=false;
-        // Save some CPU time while waiting
-        Thread.sleep(100);
+      if (say) {
+        println("--> Saying: percent <--");
+      }
+      say=false;
+      // Save some CPU time while waiting
+      Thread.sleep(100);
     }
     player.close();
   } 
@@ -150,6 +155,10 @@ int getMaxBuildNumber() {
       String url = job.getString("url");
       job_info = getJobInfo(name);
       int build_count = job_info.getInt("nextBuildNumber");
+      // Well well, this is actually a hack because it is
+      // much easier to parse "nextBuildNumber" from the JSON response 
+      // than the actual buildNumber ;)
+      build_count--;
       build_counts[i] = build_count;
     }
     max_builds = max(build_counts);
@@ -217,6 +226,7 @@ void draw() {
 
         job_info = getJobInfo(name);
         float build_count = (float)job_info.getInt("nextBuildNumber");
+        build_count--;
         textSize(rect_height/2);
         int text_pos_y = (rect_height/2)+offset+(rect_height/2)/2;
 
@@ -286,14 +296,14 @@ void draw() {
       int percentage = round(percentage_f);
 
       textSize(fixed_text_size*1.5);
-      String dummy_text = "TEST PASSING 100%";
+      String dummy_text = "PASSING 100%";
       float text_width = textWidth(dummy_text);
       if (percentage >= 50.0f) {
         fill(153, 204, 255);
-        text("TEST PASSING: "+Integer.toString(percentage)+"%", width/2-text_width/2, height-180+fixed_text_size);
+        text("PASSING: "+Integer.toString(percentage)+"%", width/2-text_width/2, height-180+fixed_text_size);
       } else {
         fill(255, 102, 104);
-        text("TEST PASSING: "+Integer.toString(percentage)+"%", width/2-text_width/2, height-180+fixed_text_size);
+        text("PASSING: "+Integer.toString(percentage)+"%", width/2-text_width/2, height-180+fixed_text_size);
       }
 
       if (now-say_start > sayrate) {
@@ -337,18 +347,21 @@ void draw() {
       println("While MainLoop()\n");
       println(e);
     }
-  } // err_state
-    if (error_state) {
-      fill(255, 102, 104);
-      textSize(width/10);
-      text("ERROR!\nConsult log file...", 40, height/3);
+  }// err_state
+  
+  if (error_state) {
+    fill(255, 102, 104);
+    textSize(width/10);
+    text("ERROR!\nConsult log file...", 40, height/3);
   }
-} // draw
+  
+}// draw()
 
 
 void stop()
 {
-  // Always close Minim audio classes when you are done with them
   minim.stop();
   super.stop();
+  println("Cleaning MINIM");
 }
+
