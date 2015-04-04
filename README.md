@@ -19,7 +19,8 @@ a public display (at your office for instance) in order to provide a quick overv
 Installation
 =============
 
-This application runs on Linux, MacOS and Windows. Below you can find the installation instructions for `Linux`. It will be, most probably, similar for MacOS and Windows. You basically just need to figure out how to install Processing under MacOS and Win, therefore please consult the Processing website.
+This application runs on Linux, MacOS and Windows. Below you can find the installation instructions for `Linux`. It will be, most probably, similar for MacOS and Windows. 
+You basically just need to figure out how to install Processing under MacOS and Win. Therefore, please consult the Processing documentation.
 
 1. mkdir -p ~/sketchbook/libraries
 2. git clone this into ~/sketchbook
