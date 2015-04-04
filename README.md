@@ -19,6 +19,8 @@ a public display (at your office for instance) in order to provide a quick overv
 Installation
 =============
 
+This application runs on Linux, MacOS and Windows. Below you can find the installation instructions for `Linux`. It will be, most probably, similar for MacOS and Windows. You basically just need to figure out how to install Processing under MacOS and Win, therefore please consult the Processing website.
+
 1. mkdir -p ~/sketchbook/libraries
 2. git clone this into ~/sketchbook
 3. Download and unzip the [HTTP Requests Library](https://github.com/runemadsen/HTTP-Requests-for-Processing/releases/download/0.1/httprequests_processing.zip) into ~/sketchbook/libraries
