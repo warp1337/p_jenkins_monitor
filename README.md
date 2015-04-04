@@ -19,11 +19,12 @@ a public display (at your office for instance) in order to provide a quick overv
 Installation
 =============
 
-1. mkdir ~/sketchbook
+1. mkdir -p ~/sketchbook/libraries
 2. git clone this into ~/sketchbook
-3. Edit the config.json according to your needs
-4. Get the latest release of https://processing.org/, fire it up, and open the Jenkins_Monitor.pde
-5. Run it! (press "Play")
+3. Download and unzip the [HTTP Requests Library](https://github.com/runemadsen/HTTP-Requests-for-Processing/releases/download/0.1/httprequests_processing.zip) into ~/sketchbook/libraries
+4. Edit the config.json according to your needs
+5. Get the latest release of https://processing.org/, fire it up, and open the Jenkins_Monitor.pde
+6. Run it! (press "Play")
 
 
 Stand-Alone Deployment
